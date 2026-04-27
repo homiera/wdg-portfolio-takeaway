@@ -1003,14 +1003,28 @@ html, body {
 </section>
 
 <!-- PAGE 9: TESTIMONIAL -->
-<section class="page page-testimonial" style="background:#000;display:grid;grid-template-rows:auto 1fr;">
+<section class="page page-testimonial" style="background:#000;display:grid;grid-template-rows:auto 1fr;position:relative;">
 
-  <div style="padding:5vh 5vw 3vh;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;">
+  <!-- Video background — left portion, heavily overlaid -->
+  <div style="position:absolute;left:0;top:0;width:62%;height:100%;overflow:hidden;z-index:0;pointer-events:none;">
+    <video autoplay muted loop playsinline disablepictureinpicture
+           style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;">
+      <source src="https://www.webdevelopmentgroup.com/wp-content/uploads/2025/11/we_are_the_american_red_cross.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay — keeps video very subtle -->
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.82);"></div>
+    <!-- Right-edge fade: blends seamlessly into the pure-black right side -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,#000 100%);"></div>
+  </div>
+
+  <!-- Header row — explicitly above video -->
+  <div style="padding:5vh 5vw 3vh;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0;position:relative;z-index:1;">
     <div class="eyebrow">12 &middot; In Their Words</div>
     <h2 class="page-title" style="color:#fff;">What clients say about working with WDG.</h2>
   </div>
 
-  <div class="tq-grid" id="tqGrid">
+  <!-- Card grid — explicitly above video -->
+  <div class="tq-grid" id="tqGrid" style="position:relative;z-index:1;">
 
     <div class="tq-card" data-bg="s-team">
       <div class="tq-bg"></div>
